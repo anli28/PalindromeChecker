@@ -14,11 +14,19 @@ public void setup()
     }
   }
 }
+
 public boolean palindrome(String word)
 {
-  //your code here
+  String s = "";
+  for(int i = word.length()-1; i >= 0; i--){
+    s = s + word.substring(i,i+1);
+  }
+    if(s.equals(word)){
+      return true;
+  }
   return false;
 }
+
 public String reverse(String str)
 {
     String sNew = new String();
