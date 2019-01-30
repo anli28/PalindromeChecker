@@ -17,21 +17,51 @@ public void setup()
 
 public boolean palindrome(String word)
 {
-  String s = "";
-  for(int i = word.length()-1; i >= 0; i--){
-    s = s + word.substring(i,i+1);
-  }
-    if(s.equals(word)){
-      return true;
+  String cool = reverse(onlyLetters(noSpaces(noCapitals(word))));
+  String sucks = onlyLetters(noSpaces(noCapitals(word)));
+  if(sucks.equals(cool) == true){
+    return true;
   }
   return false;
 }
 
 public String reverse(String str)
 {
-    String sNew = new String();
-    //your code here
-    return sNew;
+  String s = "";
+    for(int i = str.length()-1; i >= 0; i--){
+    s = s + str.substring(i,i+1);
+  }
+    return s;
+}
+
+
+public String noCapitals(String sWord){
+  return sWord.toLowerCase();
+}
+
+public String noSpaces(String sWord){
+  if(sWord.equals("")){
+    return "";
+  }
+  String s = "";
+  for(int i = 0; i < sWord.length(); i++){
+    if(Character.isLetter(sWord.charAt(i)) == true){
+      s = s + sWord.charAt(i);
+      }
+  }
+  return s;
+  
+}
+
+
+public String onlyLetters(String sString){
+  String s = new String();
+  for(int i = 0; i < sString.length(); i++){
+    if(Character.isLetter(sString.charAt(i)) == true){
+      s = s + sString.substring(i,i+1);
+    }
+  }
+  return s;
 }
 
 
